@@ -1,0 +1,85 @@
+:root {
+    --bg-blue: #e0ebf0;
+    --dark: #1a1a1a;
+    --accent: #5b8491;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-blue);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 8%;
+    align-items: center;
+}
+
+.logo { font-weight: 700; letter-spacing: 3px; font-size: 1.2rem; }
+nav a { text-decoration: none; color: var(--dark); margin: 0 15px; font-size: 0.9rem; text-transform: uppercase; }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 60px 10%;
+    min-height: 60vh;
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 500; max-width: 800px; margin-inline: auto; }
+.hero p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.7; }
+
+/* Buttons */
+button {
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-dark { background: var(--dark); color: white; }
+.btn-dark:hover { background: var(--accent); }
+
+.btn-outline { 
+    background: transparent; 
+    border: 1px solid var(--dark); 
+    margin-top: 20px;
+}
+
+/* Layouts */
+.section-container {
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    background: var(--white);
+}
+
+.section-container.reverse { flex-direction: row-reverse; }
+
+.content-box { flex: 1; }
+.content-box h2 { font-size: 2.2rem; margin-bottom: 20px; }
+
+.image-box { 
+    flex: 1; 
+    height: 400px; 
+    background: var(--bg-blue); 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-container, .section-container.reverse { flex-direction: column; text-align: center; }
+    .hero h1 { font-size: 2.2rem; }
+}
