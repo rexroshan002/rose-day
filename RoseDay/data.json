@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Aces office dits book Ilove Tis lijch",
+    "subtitle": "Curated minimalist furniture for modern living spaces.",
+    "cta": "Explore More"
+  },
+  "products": [
+    {
+      "title": "Get out arrows well shryler it pieces.",
+      "description": "Experience the comfort of ergonomic design meets high-end aesthetics.",
+      "button": "Learn More",
+      "layout": "left"
+    },
+    {
+      "title": "Peluct oend now",
+      "description": "Transform your atmosphere with subtle lighting and texture.",
+      "button": "Shop Now",
+      "layout": "right"
+    }
+  ]
+}

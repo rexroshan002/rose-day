@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f8e1e7">
+    <title>Happy Rose Day, Muskann 😗❤️</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="rose-header">
+        <div class="logo">XERKSUM💕</div>
+        <div class="date-tag">February 7th</div>
+    </header>
+
+    <main>
+        <section class="rose-hero">
+            <div class="hero-content reveal">
+                <h1 id="main-heading"></h1>
+                <p id="sub-heading"></p>
+                <button id="action-btn" class="btn-rose" onclick="document.getElementById('story-feed').scrollIntoView({behavior: 'smooth'})"></button>
+            </div>
+        </section>
+
+        <div id="story-feed"></div>
+
+        <section class="photo-wall reveal">
+            <div class="wall-header">
+                <h2>Mush's Gallery😗❤️</h2>
+                <p>A few glimpses of you becuz i'm ugly😞...</p>
+            </div>
+            <div id="gallery-grid" class="gallery-grid"></div>
+            <button id="show-more-btn" class="btn-rose-outline">Show More Muskanzz..</button>
+        </section>
+
+        <section class="surprise-section reveal">
+            <h2>A Secret for You</h2>
+            <div class="rose-icon" id="rose-trigger">🌹</div>
+            <div id="secret-message" class="hidden-msg"></div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <footer class="rose-footer">
+    <div class="end-interaction">
+        <p>This is just the beginning of our story...</p>
+        <button class="btn-rose-small" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            Relive the Magic 🌹
+        </button>
+    </div>
+</footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

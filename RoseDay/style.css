@@ -1,0 +1,222 @@
+:root {
+    --rose-pink: #f8e1e7;
+    --deep-rose: #d63384;
+    --cream: #fffafb;
+    --text-color: #4a4a4a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background-color: var(--rose-pink); color: var(--text-color); overflow-x: hidden; }
+h1, h2 { font-family: 'Playfair Display', serif; }
+
+/* Header */
+.rose-header { 
+    position: absolute; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; 
+    padding: 30px 10%; font-weight: bold; color: white;
+}
+.logo { font-size: 1.2rem; color: var(--rose-pink); text-shadow: 1px 1px 5px rgba(0,0,0,0.3); }
+
+/* Hero Slideshow */
+.rose-hero {
+    position: relative; height: 85vh; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: #000;
+}
+#slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.slide { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0; visibility: hidden;
+    transition: opacity 1.5s ease-in-out; 
+}
+.slide.loaded { visibility: visible; }
+.slide.active { opacity: 1; }
+.hero-overlay { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); z-index: 2; 
+}
+.hero-content { position: relative; z-index: 3; text-align: center; color: white; }
+.hero-content h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 10px; }
+
+/* Memories Section */
+#story-feed { padding: 80px 0; background-color: var(--cream); }
+.memory-item { 
+    display: flex; align-items: center; justify-content: space-between; 
+    padding: 60px 10%; gap: 50px; max-width: 1200px; margin: 0 auto; 
+}
+.memory-item.reverse { flex-direction: row-reverse; }
+.memory-text { flex: 1; }
+.memory-date { color: var(--deep-rose); font-weight: bold; font-size: 0.9rem; }
+.memory-visual { flex: 1; height: 400px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.memory-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Photo Wall (Gathered Logic) */
+.photo-wall { padding: 80px 5%; background: var(--cream); text-align: center; }
+.gallery-grid { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; max-width: 1100px; margin: 40px auto; 
+}
+.gallery-item { 
+    width: 100%; height: 300px; object-fit: cover; 
+    border-radius: 12px; cursor: pointer; transition: 0.3s; 
+}
+.gallery-item:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(214, 51, 132, 0.2); }
+
+/* Lightbox Modal */
+.lightbox { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.9); display: flex; justify-content: center; 
+    align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; 
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox img { max-width: 90%; max-height: 80%; border-radius: 5px; }
+.close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+/* UI Elements */
+.btn-rose { background: var(--deep-rose); color: white; padding: 15px 40px; border-radius: 50px; border: none; cursor: pointer; }
+.surprise-section { text-align: center; padding: 100px 10%; background: var(--rose-pink); }
+.rose-icon { font-size: 4rem; cursor: pointer; transition: 0.3s; }
+.hidden-msg { opacity: 0; transition: 0.8s; color: var(--deep-rose); font-size: 1.5rem; margin-top: 20px; }
+.hidden-msg.show { opacity: 1; }
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.rose-footer { text-align: center; padding: 40px; opacity: 0.7; }
+
+@media (max-width: 768px) {
+    .memory-item, .memory-item.reverse { flex-direction: column; text-align: center; }
+}
+
+/* ... Keep all your previous CSS and add/update these specific parts ... */
+
+.btn-rose-outline {
+    background: transparent;
+    border: 2px solid var(--deep-rose);
+    color: var(--deep-rose);
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.btn-rose-outline:hover {
+    background: var(--deep-rose);
+    color: white;
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+/* Ensure the grid doesn't stretch on desktop */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+/* Glassmorphism Card Style */
+.hidden-msg { 
+    opacity: 0; 
+    visibility: hidden;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Blurs the background behind the card */
+    border-radius: 20px;
+    border: 1px solid rgba(214, 51, 132, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    position: relative;
+}
+/* --- Slideshow Blur --- */
+.slide { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0; visibility: hidden;
+    transition: opacity 1.5s ease-in-out; 
+    /* The tiny blur: 2px makes it dreamy without losing detail */
+    filter: blur(1.2px) brightness(0.8); 
+}
+
+.hidden-msg.show { 
+    opacity: 1; 
+    visibility: visible;
+    transform: translateY(-20px);
+    transition: all 1s ease;
+}
+
+/* Cursor for the typing effect */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--deep-rose);
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+/* Specific Mobile Fixes for Spacing */
+@media (max-width: 768px) {
+    /* 1. Spacing between Slideshow Title, Desc, and Button */
+    .hero-content h1 {
+        font-size: 2.2rem; /* Slightly smaller for mobile */
+        margin-bottom: 8px; /* Tighter gap to description */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 15px; /* Keep text from hitting screen edges */
+        margin-bottom: 15px; /* Tighter gap to button */
+    }
+
+    .rose-hero {
+        height: 70vh; /* Reduced height so user sees there is content below */
+    }
+
+    /* 2. Spacing between Gallery Header and the Grid */
+    .photo-wall {
+        padding: 50px 5%; /* Reduced top/bottom padding of the section */
+    }
+
+    .wall-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 5px; /* Tighter gap to p tag */
+    }
+
+    .wall-header p {
+        margin-bottom: 20px; /* Reduced gap before images start */
+        font-size: 0.9rem;
+    }
+
+    .gallery-grid {
+        margin: 10px auto; /* Reduced margin above the grid */
+        gap: 12px; /* Tighter gaps between photos for a 'gathered' look */
+    }
+
+    /* 3. Adjusting the Secret Card for mobile */
+    .hidden-msg {
+        padding: 20px;
+        margin: 15px;
+        font-size: 1.1rem;
+        max-width: 90%; /* Ensure it fits on narrow screens */
+    }
+}
+.touch-heart {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    animation: heartFly 0.8s ease-out forwards;
+    pointer-events: none;
+    z-index: 3000;
+}
+
+@keyframes heartFly {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -150%) scale(1.5); }
+}
